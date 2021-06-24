@@ -166,33 +166,17 @@ class suggest:
         try:
             
             G = nx.Graph()
-            path = pt.shortestpath(g, excel_node1, excel_node2)
-            print(path)
-
-            path_nodes = list()
-            for vertex in path[0]:
-                #TODO if multiple paths you have to go through each remove path[0]
+            path_obj = pt.shortestpath(g, excel_node1, excel_node2)
+            nx.add_path(G,path_obj)
+            attrs = dict()
+            for vertex in path_obj:
                 temp = dict()
-                
                 for property in g.V(vertex.id).properties().valueMap(True).toList():
-                    
                     temp[property[T.key]] = property[T.value]
-                path_nodes.append((vertex.id, temp))
+                attrs[vertex]=temp
             
-                #G.add_nodes_from(list(property[T.id], temp))
-            G = nx.Graph()
-            G.add_nodes_from(path_nodes)
+            nx.set_node_attributes(G, attrs)
 
-            path_nodes_list =list()
-            path_edges = list()
-            for i in path_nodes:
-                path_nodes_list.append(i[0])
-            for i in range(len(path_nodes_list)-1):
-                path_edges.append((path_nodes_list[i], path_nodes_list[i+1]))
-            print(path_edges)
-            G.add_edges_from(path_edges)
-
-            #nx.write_graphml(G, "testpath.graphml")
             return G
 
 

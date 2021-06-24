@@ -1,16 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jun 12 13:10:57 2021
 
-@author: thero
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun 11 19:20:38 2021
-
-@author: thero
-"""
 import numpy 
 import pandas as pd
 import networkx as nx
