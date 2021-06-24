@@ -1,0 +1,234 @@
+[INFO] GremlinServer - 3.4.10
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+
+[INFO] GremlinServer - Configuring Gremlin Server from /home/priyank/Documents/activity/apache-tinkerpop-gremlin-server-3.4.10/conf/gremlin-server.yaml
+[INFO] MetricManager - Configured Metrics ConsoleReporter configured with report interval=180000ms
+[INFO] MetricManager - Configured Metrics CsvReporter configured with report interval=180000ms to fileName=/tmp/gremlin-server-metrics.csv
+[INFO] MetricManager - Configured Metrics JmxReporter configured with domain= and agentId=
+[INFO] MetricManager - Configured Metrics Slf4jReporter configured with interval=180000ms and loggerName=org.apache.tinkerpop.gremlin.server.Settings$Slf4jReporterMetrics
+[INFO] DefaultGraphManager - Graph [graph] was successfully configured via [conf/tinkergraph-empty.properties].
+[INFO] ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads in pool named with pattern gremlin-*
+[INFO] ServerGremlinExecutor - Initialized GremlinExecutor and preparing GremlinScriptEngines instances.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (file:/home/priyank/Documents/activity/apache-tinkerpop-gremlin-server-3.4.10/lib/groovy-2.5.14-indy.jar) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] ServerGremlinExecutor - Initialized gremlin-groovy GremlinScriptEngine and registered metrics
+[INFO] ServerGremlinExecutor - A GraphTraversalSource is now bound to [g] with graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+[INFO] OpLoader - Adding the standard OpProcessor.
+[INFO] OpLoader - Adding the session OpProcessor.
+[INFO] OpLoader - Adding the traversal OpProcessor.
+[INFO] TraversalOpProcessor - Initialized cache for TraversalOpProcessor with size 1000 and expiration time of 600000 ms
+[INFO] GremlinServer - Executing start up LifeCycleHook
+[INFO] Logger$info - Executed once at startup of Gremlin Server.
+[INFO] GremlinServer - idleConnectionTimeout was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+[INFO] GremlinServer - keepAliveInterval was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+[WARN] AbstractChannelizer - The org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0 serialization class is deprecated.
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+gryo with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0
+[WARN] AbstractChannelizer - The org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0 serialization class is deprecated.
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+gryo-stringd with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/vnd.graphbinary-v1.0 with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+[INFO] AbstractChannelizer - Configured application/vnd.graphbinary-v1.0-stringd with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+[INFO] GremlinServer$1 - Gremlin Server configured with worker thread pool of 1, gremlin pool of 4 and boss thread pool of 1.
+[INFO] GremlinServer$1 - Channel started at port 8182.
+09/03/21, 11:07:34 PM ==========================================================
+
+-- Gauges ----------------------------------------------------------------------
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.average-load-penalty
+             value = 6.606718495E8
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.estimated-size
+             value = 2
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.eviction-count
+             value = 0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.eviction-weight
+             value = 0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.hit-count
+             value = 0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.hit-rate
+             value = 0.0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-count
+             value = 2
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-failure-count
+             value = 0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-failure-rate
+             value = 0.0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-success-count
+             value = 2
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.long-run-compilation-count
+             value = 0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.miss-count
+             value = 2
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.miss-rate
+             value = 1.0
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.request-count
+             value = 2
+org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.total-load-time
+             value = 1321343699
+org.apache.tinkerpop.gremlin.server.GremlinServer.sessions
+             value = 0
+
+-- Meters ----------------------------------------------------------------------
+org.apache.tinkerpop.gremlin.server.GremlinServer.errors
+             count = 0
+         mean rate = 0.00 events/second
+     1-minute rate = 0.00 events/second
+     5-minute rate = 0.00 events/second
+    15-minute rate = 0.00 events/second
+
+-- Timers ----------------------------------------------------------------------
+org.apache.tinkerpop.gremlin.server.GremlinServer.op.eval
+             count = 0
+         mean rate = 0.00 calls/second
+     1-minute rate = 0.00 calls/second
+     5-minute rate = 0.00 calls/second
+    15-minute rate = 0.00 calls/second
+               min = 0.00 milliseconds
+               max = 0.00 milliseconds
+              mean = 0.00 milliseconds
+            stddev = 0.00 milliseconds
+            median = 0.00 milliseconds
+              75% <= 0.00 milliseconds
+              95% <= 0.00 milliseconds
+              98% <= 0.00 milliseconds
+              99% <= 0.00 milliseconds
+            99.9% <= 0.00 milliseconds
+org.apache.tinkerpop.gremlin.server.GremlinServer.op.traversal
+             count = 0
+         mean rate = 0.00 calls/second
+     1-minute rate = 0.00 calls/second
+     5-minute rate = 0.00 calls/second
+    15-minute rate = 0.00 calls/second
+               min = 0.00 milliseconds
+               max = 0.00 milliseconds
+              mean = 0.00 milliseconds
+            stddev = 0.00 milliseconds
+            median = 0.00 milliseconds
+              75% <= 0.00 milliseconds
+              95% <= 0.00 milliseconds
+              98% <= 0.00 milliseconds
+              99% <= 0.00 milliseconds
+            99.9% <= 0.00 milliseconds
+
+
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.average-load-penalty, value=6.606718495E8
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.estimated-size, value=2
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.eviction-count, value=0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.eviction-weight, value=0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.hit-count, value=0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.hit-rate, value=0.0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-count, value=2
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-failure-count, value=0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-failure-rate, value=0.0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.load-success-count, value=2
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.long-run-compilation-count, value=0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.miss-count, value=2
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.miss-rate, value=1.0
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.request-count, value=2
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.gremlin-groovy.sessionless.class-cache.total-load-time, value=1321343699
+[INFO] MarkerIgnoringBase - type=GAUGE, name=org.apache.tinkerpop.gremlin.server.GremlinServer.sessions, value=0
+[INFO] MarkerIgnoringBase - type=METER, name=org.apache.tinkerpop.gremlin.server.GremlinServer.errors, count=0, mean_rate=0.0, m1=0.0, m5=0.0, m15=0.0, rate_unit=events/second
+[INFO] MarkerIgnoringBase - type=TIMER, name=org.apache.tinkerpop.gremlin.server.GremlinServer.op.eval, count=0, min=0.0, max=0.0, mean=0.0, stddev=0.0, median=0.0, p75=0.0, p95=0.0, p98=0.0, p99=0.0, p999=0.0, mean_rate=0.0, m1=0.0, m5=0.0, m15=0.0, rate_unit=events/second, duration_unit=milliseconds
+[INFO] MarkerIgnoringBase - type=TIMER, name=org.apache.tinkerpop.gremlin.server.GremlinServer.op.traversal, count=0, min=0.0, max=0.0, mean=0.0, stddev=0.0, median=0.0, p75=0.0, p95=0.0, p98=0.0, p99=0.0, p999=0.0, mean_rate=0.0, m1=0.0, m5=0.0, m15=0.0, rate_unit=events/second, duration_unit=milliseconds
+[INFO] GremlinServer - Shutting down OpProcessor[]
+[INFO] GremlinServer - Shutting down OpProcessor[session]
+[INFO] GremlinServer - Shutting down OpProcessor[traversal]
+[INFO] GremlinServer - Shutting down thread pools.
+[INFO] GremlinServer - Executing shutdown LifeCycleHook
+[INFO] Logger$info - Executed once at shutdown of Gremlin Server.
+[INFO] GremlinServer - Closed Graph instance [graph]
+[INFO] GremlinServer - Gremlin Server - shutdown complete
+[INFO] GremlinServer - 3.4.10
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+
+[INFO] GremlinServer - Configuring Gremlin Server from /home/priyank/Documents/activity/apache-tinkerpop-gremlin-server-3.4.10/conf/gremlin-server.yaml
+[INFO] MetricManager - Configured Metrics ConsoleReporter configured with report interval=180000ms
+[INFO] MetricManager - Configured Metrics CsvReporter configured with report interval=180000ms to fileName=/tmp/gremlin-server-metrics.csv
+[INFO] MetricManager - Configured Metrics JmxReporter configured with domain= and agentId=
+[INFO] MetricManager - Configured Metrics Slf4jReporter configured with interval=180000ms and loggerName=org.apache.tinkerpop.gremlin.server.Settings$Slf4jReporterMetrics
+[INFO] DefaultGraphManager - Graph [graph] was successfully configured via [conf/tinkergraph-empty.properties].
+[INFO] ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads in pool named with pattern gremlin-*
+[INFO] ServerGremlinExecutor - Initialized GremlinExecutor and preparing GremlinScriptEngines instances.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (file:/home/priyank/Documents/activity/apache-tinkerpop-gremlin-server-3.4.10/lib/groovy-2.5.14-indy.jar) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] ServerGremlinExecutor - Initialized gremlin-groovy GremlinScriptEngine and registered metrics
+[INFO] ServerGremlinExecutor - A GraphTraversalSource is now bound to [g] with graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+[INFO] OpLoader - Adding the standard OpProcessor.
+[INFO] OpLoader - Adding the session OpProcessor.
+[INFO] OpLoader - Adding the traversal OpProcessor.
+[INFO] TraversalOpProcessor - Initialized cache for TraversalOpProcessor with size 1000 and expiration time of 600000 ms
+[INFO] GremlinServer - Executing start up LifeCycleHook
+[INFO] Logger$info - Executed once at startup of Gremlin Server.
+[INFO] GremlinServer - idleConnectionTimeout was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+[INFO] GremlinServer - keepAliveInterval was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+[WARN] AbstractChannelizer - The org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0 serialization class is deprecated.
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+gryo with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0
+[WARN] AbstractChannelizer - The org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0 serialization class is deprecated.
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+gryo-stringd with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/vnd.graphbinary-v1.0 with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+[INFO] AbstractChannelizer - Configured application/vnd.graphbinary-v1.0-stringd with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+[INFO] GremlinServer$1 - Gremlin Server configured with worker thread pool of 1, gremlin pool of 4 and boss thread pool of 1.
+[INFO] GremlinServer$1 - Channel started at port 8182.
+[INFO] GremlinServer - Shutting down OpProcessor[]
+[INFO] GremlinServer - Shutting down OpProcessor[session]
+[INFO] GremlinServer - Shutting down OpProcessor[traversal]
+[INFO] GremlinServer - Shutting down thread pools.
+[INFO] GremlinServer - Executing shutdown LifeCycleHook
+[INFO] Logger$info - Executed once at shutdown of Gremlin Server.
+[INFO] GremlinServer - Closed Graph instance [graph]
+[INFO] GremlinServer - Gremlin Server - shutdown complete
+[INFO] GremlinServer - 3.4.10
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+
+[INFO] GremlinServer - Configuring Gremlin Server from /home/priyank/Documents/activity/apache-tinkerpop-gremlin-server-3.4.10/conf/gremlin-server.yaml
+[INFO] MetricManager - Configured Metrics ConsoleReporter configured with report interval=180000ms
+[INFO] MetricManager - Configured Metrics CsvReporter configured with report interval=180000ms to fileName=/tmp/gremlin-server-metrics.csv
+[INFO] MetricManager - Configured Metrics JmxReporter configured with domain= and agentId=
+[INFO] MetricManager - Configured Metrics Slf4jReporter configured with interval=180000ms and loggerName=org.apache.tinkerpop.gremlin.server.Settings$Slf4jReporterMetrics
+[INFO] DefaultGraphManager - Graph [graph] was successfully configured via [conf/tinkergraph-empty.properties].
+[INFO] ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads in pool named with pattern gremlin-*
+[INFO] ServerGremlinExecutor - Initialized GremlinExecutor and preparing GremlinScriptEngines instances.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (file:/home/priyank/Documents/activity/apache-tinkerpop-gremlin-server-3.4.10/lib/groovy-2.5.14-indy.jar) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] OpLoader - Adding the standard OpProcessor.
+[INFO] OpLoader - Adding the session OpProcessor.
+[INFO] OpLoader - Adding the traversal OpProcessor.
+[INFO] GremlinServer - Shutting down OpProcessor[]
+[INFO] GremlinServer - Shutting down OpProcessor[session]
+[INFO] GremlinServer - Shutting down OpProcessor[traversal]
+[INFO] GremlinServer - Shutting down thread pools.
+[INFO] ServerGremlinExecutor - Initialized gremlin-groovy GremlinScriptEngine and registered metrics
+[INFO] ServerGremlinExecutor - A GraphTraversalSource is now bound to [g] with graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]
+[INFO] TraversalOpProcessor - Initialized cache for TraversalOpProcessor with size 1000 and expiration time of 600000 ms
+[INFO] GremlinServer - Executing start up LifeCycleHook
+[INFO] Logger$info - Executed once at startup of Gremlin Server.
+[INFO] GremlinServer - idleConnectionTimeout was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+[INFO] GremlinServer - keepAliveInterval was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+[WARN] AbstractChannelizer - The org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0 serialization class is deprecated.
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+gryo with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0
+[WARN] AbstractChannelizer - The org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0 serialization class is deprecated.
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+gryo-stringd with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v3.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+[INFO] AbstractChannelizer - Configured application/vnd.graphbinary-v1.0 with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+[INFO] AbstractChannelizer - Configured application/vnd.graphbinary-v1.0-stringd with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+[INFO] GremlinServer$1 - Gremlin Server configured with worker thread pool of 1, gremlin pool of 4 and boss thread pool of 1.
+[INFO] GremlinServer$1 - Channel started at port 8182.
+[INFO] GremlinServer - Closed Graph instance [graph]
+[INFO] GremlinServer - Gremlin Server - shutdown complete
