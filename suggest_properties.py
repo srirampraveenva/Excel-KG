@@ -1,5 +1,6 @@
-
-
+#TODO Should handle errors
+from itertools import combinations
+from aenum import NoneType
 from gremlin_python import statics
 from gremlin_python.process.anonymous_traversal import traversal
 from gremlin_python.process.graph_traversal import __
@@ -142,7 +143,6 @@ class suggest:
         e = excel_node()
         q = Query()
         nodes = e.convert_nodes(excel_path)
-        print(nodes)
         suggested_property = dict()
         for node in nodes:
             try:
@@ -156,33 +156,65 @@ class suggest:
         return suggested_property
     
     def suggest_connection(self, g, excel_node1, excel_node2):
-
         pt = pathtraversal()
         #res = [(a[1]['labelV'], b[1]['labelV']) for idx, a in enumerate(excel_nodes) for b in excel_nodes[idx + 1:]]
         
-        
-        #TODO based on reply to the path finding we can use the methods and return a graph object or just table suggestions
-        #Probably better to return graph cause then visualization is easier
         try:
-            
             G = nx.Graph()
             path_obj = pt.shortestpath(g, excel_node1, excel_node2)
-            nx.add_path(G,path_obj)
+            nx.add_path(G,path_obj[0]) #TODO Adds nodes of graph not excel nodes(is this bad?)
             attrs = dict()
-            for vertex in path_obj:
+            for vertex in path_obj[0]: #Added [0] because it's shortest path and we only have one path
                 temp = dict()
                 for property in g.V(vertex.id).properties().valueMap(True).toList():
                     temp[property[T.key]] = property[T.value]
                 attrs[vertex]=temp
             
             nx.set_node_attributes(G, attrs)
-
+            
+            
+            #nx.write_graphml(G, "/home/rohan/Documents/test_connection.graphml")
             return G
-
-
         except:
             return
 
+
+        
+
+    def suggest_excel(self, g, excel_path):
+        #TODO The graph adds KG nodes not Excel nodes which makes adding standalone nodes a little difficu;t
+        #And should we add excel nodes anyway with properties. 
+        #What is the final display
+        suggestion = dict()
+
+        suggestion["Properties"] = self.suggest_property(g, excel_path)
+
+        e = excel_node()
+        nodes = e.convert_nodes(excel_path)
+        G = nx.DiGraph()
+        H = nx.DiGraph()
+        q = Query()
+        for (node1, node2) in combinations(nodes, 2):
+            node1_label = node1[1]["labelV"]
+            node2_label = node2[1]["labelV"]
+            print(node1_label, node2_label)
+            if(type(q.findNode(g, node1_label)) is not str or type(q.findNode(g, node2_label)) is  not str ):
+
+                H =  self.suggest_connection(g, node1_label, node2_label)
+                
+                if (type(H) is not NoneType):
+                    print(H.nodes.data("labelV"))
+                    print(H.edges.data())
+                    G = nx.compose(G,H)
+                    #list_of_graphs.append()
+        T = nx.DiGraph()
+        T.add_nodes_from(nodes)
+        G = nx.compose(T, G)  
+        suggestion["Connection"] = G
+        nx.write_graphml(G, "/home/rohan/Documents/test_connection.graphml")
+        return suggestion
+
+        
 
 g = traversal().withRemote(DriverRemoteConnection('ws://localhost:8182/gremlin','g'))
 '''
@@ -199,7 +231,6 @@ s = suggest()
 #print(s.suggest_property(g, "test.xlsx"))
 
 excel = excel_node()
-s.suggest_connection(g,'Attendance', 'Teacher')
-
-
-
+G = s.suggest_connection(g,'Area', 'GradeParalelo')
+suggestion = s.suggest_excel(g, "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test(1).xlsx")
+#print(suggestion['Properties'], suggestion['Connection'].nodes.data())
