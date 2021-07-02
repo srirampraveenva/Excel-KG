@@ -9,8 +9,9 @@ from gremlin_python.driver.driver_remote_connection import DriverRemoteConnectio
 from gremlin_python.structure.graph import Graph
 import numpy
 import matplotlib as plt
-'''
+from pandas import ExcelWriter
 import os
+'''
 os.chdir("/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main")
 '''
 import pandas as pd
@@ -233,8 +234,22 @@ class suggest:
         return suggestion
     
     def suggest_workbooks(self,g, list_of_paths):
+        #Takes in a list of excel workbook paths, combines into one workbook and runs suggest_excel
+        writer = ExcelWriter("/home/rohan/Documents/output.xlsx")
 
-        print()
+        for filename in list_of_paths:
+            print(filename)
+            excel_file = pd.ExcelFile(filename)
+            (_, f_name) = os.path.split(filename)
+            (f_short_name, _) = os.path.splitext(f_name)
+            for sheet_name in excel_file.sheet_names:
+                df_excel = pd.read_excel(filename, sheet_name=sheet_name)
+                df_excel.to_excel(writer, sheet_name, index=False)
+
+        writer.save()
+        print("Done")
+        return self.suggest_excel(g, "/home/rohan/Documents/output.xlsx")
+
             
 
 """
@@ -265,7 +280,7 @@ p = pathtraversal()
 a = p.shortestpath(g, "Area", "GradeParalelo")
 print(a)  
 '''
-Excel_path ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test(1).xlsx"
+Excel_path ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test.xlsx"
 
 s = suggest()
 #print(s.suggest_property(g, "test.xlsx"))
@@ -288,5 +303,9 @@ nx.write_graphml(G, "graph_excel.graphml")
 Excel_path1 ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test(1).xlsx"
 Excel_path2 = "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/Inventory Management.xlsx"
 
-s.suggest_workbooks(g, (Excel_path1, Excel_path2))
+
+G = s.suggest_workbooks(g, (Excel_path1, Excel_path2))
+
+nx.write_graphml(G["Connection"], "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test_workbook.graphml")
+
     
