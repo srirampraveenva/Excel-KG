@@ -281,7 +281,7 @@ p = pathtraversal()
 a = p.shortestpath(g, "Area", "GradeParalelo")
 print(a)  
 '''
-Excel_path ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test.xlsx"
+Excel_path ="test.xlsx"
 
 s = suggest()
 #print(s.suggest_property(g, "test.xlsx"))
@@ -301,8 +301,8 @@ G.add_nodes_from(excel.convert_nodes(Excel_path))
 
 nx.write_graphml(G, "graph_excel.graphml")
 
-Excel_path1 ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test(1).xlsx"
-Excel_path2 = "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test_shortest_path.xlsx"
+Excel_path1 ="test(1).xlsx"
+Excel_path2 = "test_shortest_path.xlsx"
 
 
 G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "/home/rohan/Documents/test_workbook.graphml")
