@@ -126,7 +126,9 @@ class pathtraversal:
         if(type(q.findNode(g, node1_label)) is str or type(q.findNode(g, node2_label)) is str ):
             return "One or both nodes don't exist in KG"
         #return g.V(q.findNode(g, node1_label).id).repeat(__.out().simplePath()).until(__.hasId(q.findNode(g, node1_label).id)).path().limit(1).toList()
-        return self.npaths(g, node1_label, node2_label, 1)
+        path = self.npaths(g, node1_label, node2_label, 1)
+        return "Connection exceeds 3 nodes" if (len(path[0])>5) else path
+        
 
 class suggest:
 
@@ -157,7 +159,7 @@ class suggest:
                 continue
         return suggested_property
     
-    def suggest_connection(self, g, excel_node1, excel_node2, property_1, property_2):
+    def suggest_connection(self, g, excel_node1, excel_node2):
         pt = pathtraversal()
         #res = [(a[1]['labelV'], b[1]['labelV']) for idx, a in enumerate(excel_nodes) for b in excel_nodes[idx + 1:]]
         
@@ -190,7 +192,7 @@ class suggest:
 
         
 
-    def suggest_excel(self, g, excel_path):
+    def suggest_excel(self, g, excel_path, write_path):
         #TODO The graph adds KG nodes not Excel nodes which makes adding standalone nodes a little difficu;t
         #And should we add excel nodes anyway with properties. 
         #What is the final display
@@ -211,7 +213,7 @@ class suggest:
             node2_label = node2[1]["labelV"]
             if(type(q.findNode(g, node1_label)) is not str or type(q.findNode(g, node2_label)) is  not str ):
 
-                H =  self.suggest_connection(g, node1_label, node2_label, node1[1], node2[1])
+                H =  self.suggest_connection(g, node1_label, node2_label)
                 
                 if (type(H) is not NoneType):
 
@@ -230,12 +232,12 @@ class suggest:
         T.add_nodes_from(nodes)
         G = nx.compose(T, G)  
         suggestion["Connection"] = G
-        nx.write_graphml(G, "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test_connection.graphml")
+        nx.write_graphml(G, write_path)
         return suggestion
     
-    def suggest_workbooks(self,g, list_of_paths):
+    def suggest_workbooks(self,g, list_of_paths, write_path):
         #Takes in a list of excel workbook paths, combines into one workbook and runs suggest_excel
-        writer = ExcelWriter("/home/rohan/Documents/output.xlsx")
+        writer = ExcelWriter("output.xlsx")
 
         for filename in list_of_paths:
             print(filename)
@@ -247,8 +249,7 @@ class suggest:
                 df_excel.to_excel(writer, sheet_name, index=False)
 
         writer.save()
-        print("Done")
-        return self.suggest_excel(g, "/home/rohan/Documents/output.xlsx")
+        return self.suggest_excel(g, "output.xlsx", write_path)
 
             
 
@@ -285,7 +286,7 @@ Excel_path ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/
 s = suggest()
 #print(s.suggest_property(g, "test.xlsx"))
 
-suggestion = s.suggest_excel(g, Excel_path)
+suggestion = s.suggest_excel(g, Excel_path, "test_connection.graphml")
 print("\t\t\tProperty\t\tType")
 for i in suggestion['Properties'].keys():
     print("Node label : ", i)
@@ -301,11 +302,11 @@ G.add_nodes_from(excel.convert_nodes(Excel_path))
 nx.write_graphml(G, "graph_excel.graphml")
 
 Excel_path1 ="/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test(1).xlsx"
-Excel_path2 = "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/Inventory Management.xlsx"
+Excel_path2 = "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test_shortest_path.xlsx"
 
 
-G = s.suggest_workbooks(g, (Excel_path1, Excel_path2))
+G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "/home/rohan/Documents/test_workbook.graphml")
 
-nx.write_graphml(G["Connection"], "/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main/test_workbook.graphml")
+
 
     
