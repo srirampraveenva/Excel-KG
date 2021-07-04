@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d23" for="node" attr.name="address" attr.type="string"/>
+<key id="d22" for="node" attr.name="email" attr.type="string"/>
+<key id="d21" for="node" attr.name="classroom_id" attr.type="string"/>
+<key id="d20" for="node" attr.name="Teacher_id" attr.type="string"/>
+<key id="d19" for="node" attr.name="Time" attr.type="string"/>
+<key id="d18" for="node" attr.name="Phone" attr.type="string"/>
+<key id="d17" for="node" attr.name="Place" attr.type="string"/>
+<key id="d16" for="node" attr.name="Parent_id" attr.type="string"/>
+<key id="d15" for="node" attr.name="STUDENT_ID" attr.type="string"/>
+<key id="d14" for="node" attr.name="Observation" attr.type="string"/>
+<key id="d13" for="node" attr.name="Course_id" attr.type="string"/>
+<key id="d12" for="node" attr.name="Exam_id" attr.type="string"/>
+<key id="d11" for="node" attr.name="Grade_id" attr.type="string"/>
+<key id="d10" for="node" attr.name="Course" attr.type="string"/>
+<key id="d9" for="node" attr.name="Admission_date" attr.type="string"/>
+<key id="d8" for="node" attr.name="Admission_id" attr.type="string"/>
+<key id="d7" for="node" attr.name="Designation" attr.type="string"/>
+<key id="d6" for="node" attr.name="Name" attr.type="string"/>
+<key id="d5" for="node" attr.name="Staff_id" attr.type="string"/>
+<key id="d4" for="node" attr.name="Attended" attr.type="string"/>
+<key id="d3" for="node" attr.name="Student_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="Date" attr.type="string"/>
+<key id="d1" for="node" attr.name="Attendance_ID" attr.type="string"/>
+<key id="d0" for="node" attr.name="labelV" attr.type="string"/>
+<graph edgedefault="directed"><node id="1">
+  <data key="d0">Attendance</data>
+  <data key="d1">INT</data>
+  <data key="d2">DATE</data>
+  <data key="d3">INT</data>
+  <data key="d4">VARCHAR</data>
+</node>
+<node id="2">
+  <data key="d0">Staff</data>
+  <data key="d5">INT</data>
+  <data key="d6">VARCHAR</data>
+  <data key="d7">VARCHAR</data>
+</node>
+<node id="3">
+  <data key="d0">Admission</data>
+  <data key="d8">INT</data>
+  <data key="d9">DATE</data>
+  <data key="d6">VARCHAR</data>
+  <data key="d10">VARCHAR</data>
+</node>
+<node id="4">
+  <data key="d0">Grade</data>
+  <data key="d11">INT</data>
+  <data key="d12">INT</data>
+  <data key="d13">INT</data>
+  <data key="d6">VARCHAR</data>
+  <data key="d14">VARCHAR</data>
+</node>
+<node id="5">
+  <data key="d0">Student</data>
+  <data key="d15">INT</data>
+  <data key="d6">VARCHAR</data>
+  <data key="d16">INT</data>
+  <data key="d17">VARCHAR</data>
+  <data key="d18">INT</data>
+  <data key="d19">DATE</data>
+</node>
+<node id="6">
+  <data key="d0">Teacher</data>
+  <data key="d20">INT</data>
+  <data key="d6">VARCHAR</data>
+  <data key="d21">INT</data>
+  <data key="d22">VARCHAR</data>
+  <data key="d23">VARCHAR</data>
+</node>
+</graph></graphml>

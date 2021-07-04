@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d33" for="node" attr.name="Level_id" attr.type="string"/>
+<key id="d32" for="node" attr.name="Grade_paraleloes_id" attr.type="string"/>
+<key id="d31" for="node" attr.name="Garde_id" attr.type="string"/>
+<key id="d30" for="node" attr.name="Observation" attr.type="string"/>
+<key id="d29" for="node" attr.name="Subject_grades_id" attr.type="string"/>
+<key id="d28" for="node" attr.name="Garde_paralelos_id" attr.type="string"/>
+<key id="d27" for="node" attr.name="StaffType_id" attr.type="string"/>
+<key id="d26" for="node" attr.name="Place_of_birth" attr.type="string"/>
+<key id="d25" for="node" attr.name="Date_of_birth" attr.type="string"/>
+<key id="d24" for="node" attr.name="Salary" attr.type="string"/>
+<key id="d23" for="node" attr.name="Staff_id" attr.type="string"/>
+<key id="d22" for="node" attr.name="Grade_id" attr.type="string"/>
+<key id="d21" for="node" attr.name="Garde_paralelo_id" attr.type="string"/>
+<key id="d20" for="node" attr.name="ScoreRecords_id" attr.type="string"/>
+<key id="d19" for="node" attr.name="Mother_name" attr.type="string"/>
+<key id="d18" for="node" attr.name="Father_name" attr.type="string"/>
+<key id="d17" for="node" attr.name="Sex" attr.type="string"/>
+<key id="d16" for="node" attr.name="Address" attr.type="string"/>
+<key id="d15" for="node" attr.name="Date_of_Birth" attr.type="string"/>
+<key id="d14" for="node" attr.name="Rude" attr.type="string"/>
+<key id="d13" for="node" attr.name="Mobile_phone" attr.type="string"/>
+<key id="d12" for="node" attr.name="Date" attr.type="string"/>
+<key id="d11" for="node" attr.name="Attendance_id" attr.type="string"/>
+<key id="d10" for="node" attr.name="Attended" attr.type="string"/>
+<key id="d9" for="node" attr.name="Student_id" attr.type="string"/>
+<key id="d8" for="node" attr.name="address" attr.type="string"/>
+<key id="d7" for="node" attr.name="email" attr.type="string"/>
+<key id="d6" for="node" attr.name="classroom_id" attr.type="string"/>
+<key id="d5" for="node" attr.name="Teacher_id" attr.type="string"/>
+<key id="d4" for="node" attr.name="Course" attr.type="string"/>
+<key id="d3" for="node" attr.name="Name" attr.type="string"/>
+<key id="d2" for="node" attr.name="Admission_date" attr.type="string"/>
+<key id="d1" for="node" attr.name="Admission_id" attr.type="string"/>
+<key id="d0" for="node" attr.name="labelV" attr.type="string"/>
+<graph edgedefault="directed"><node id="3">
+  <data key="d0">Admission</data>
+  <data key="d1">INT</data>
+  <data key="d2">DATE</data>
+  <data key="d3">VARCHAR</data>
+  <data key="d4">VARCHAR</data>
+</node>
+<node id="6">
+  <data key="d0">Teacher</data>
+  <data key="d5">INT</data>
+  <data key="d3">VARCHAR</data>
+  <data key="d6">INT</data>
+  <data key="d7">VARCHAR</data>
+  <data key="d8">VARCHAR</data>
+</node>
+<node id="v[18]">
+  <data key="d0">Attendance</data>
+  <data key="d9">INT</data>
+  <data key="d10">VARCHAR</data>
+  <data key="d11">INT</data>
+  <data key="d12">DATE</data>
+</node>
+<node id="v[19]">
+  <data key="d13">VARCHAR</data>
+  <data key="d14">VARCHAR</data>
+  <data key="d15">DATE</data>
+  <data key="d16">VARCHAR</data>
+  <data key="d17">VARCHAR</data>
+  <data key="d18">VARCHAR</data>
+  <data key="d19">VARCHAR</data>
+  <data key="d3">VARCHAR</data>
+  <data key="d20">INT</data>
+  <data key="d0">Student</data>
+  <data key="d9">INT</data>
+  <data key="d21">INT</data>
+  <data key="d11">INT</data>
+</node>
+<node id="v[20]">
+  <data key="d0">GradeParalelo</data>
+  <data key="d22">INT</data>
+  <data key="d9">INT</data>
+  <data key="d21">INT</data>
+  <data key="d23">INT</data>
+  <data key="d3">VARCHAR</data>
+</node>
+<node id="v[21]">
+  <data key="d24">VARCHAR</data>
+  <data key="d13">INT</data>
+  <data key="d16">VARCHAR</data>
+  <data key="d25">DATE</data>
+  <data key="d17">VARCHAR</data>
+  <data key="d26">VARCHAR</data>
+  <data key="d27">INT</data>
+  <data key="d18">VARCHAR</data>
+  <data key="d19">VARCHAR</data>
+  <data key="d3">VARCHAR</data>
+  <data key="d0">Staff</data>
+  <data key="d28">INT</data>
+  <data key="d23">INT</data>
+</node>
+<node id="v[16]">
+  <data key="d0">Grade</data>
+  <data key="d29">INT</data>
+  <data key="d30">VARCHAR</data>
+  <data key="d31">INT</data>
+  <data key="d32">INT</data>
+  <data key="d33">INT</data>
+  <data key="d3">VARCHAR</data>
+</node>
+<edge source="v[18]" target="v[19]"/>
+<edge source="v[19]" target="v[20]"/>
+<edge source="v[20]" target="v[21]"/>
+<edge source="v[16]" target="v[20]"/>
+</graph></graphml>

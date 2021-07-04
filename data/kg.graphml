@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d18" for="edge" attr.name="labelE" attr.type="string"/>
+<key id="d17" for="node" attr.name="mobile" attr.type="string"/>
+<key id="d16" for="node" attr.name="password" attr.type="string"/>
+<key id="d15" for="node" attr.name="parent_id" attr.type="string"/>
+<key id="d14" for="node" attr.name="dob" attr.type="string"/>
+<key id="d13" for="node" attr.name="email" attr.type="string"/>
+<key id="d12" for="node" attr.name="exam_id" attr.type="string"/>
+<key id="d11" for="node" attr.name="exam_type" attr.type="string"/>
+<key id="d10" for="node" attr.name="status" attr.type="string"/>
+<key id="d9" for="node" attr.name="student_id" attr.type="string"/>
+<key id="d8" for="node" attr.name="date" attr.type="string"/>
+<key id="d7" for="node" attr.name="student_id" attr.type="string"/>
+<key id="d6" for="node" attr.name="teacher_id" attr.type="string"/>
+<key id="d5" for="node" attr.name="section" attr.type="string"/>
+<key id="d4" for="node" attr.name="classroom_id" attr.type="string"/>
+<key id="d3" for="node" attr.name="course_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="name" attr.type="string"/>
+<key id="d1" for="node" attr.name="grade_id" attr.type="string"/>
+<key id="d0" for="node" attr.name="labelV" attr.type="string"/>
+<graph edgedefault="undirected"><node id="1">
+  <data key="d0">grade</data>
+  <data key="d1">INT</data>
+  <data key="d2">VARCHAR</data>
+</node>
+<node id="2">
+  <data key="d0">course</data>
+  <data key="d3">INT</data>
+  <data key="d2">VARCHAR</data>
+  <data key="d1">INT</data>
+</node>
+<node id="3">
+  <data key="d0">classroom</data>
+  <data key="d4">INT</data>
+  <data key="d1">INT</data>
+  <data key="d5">VARCHAR</data>
+  <data key="d6">INT</data>
+</node>
+<node id="4">
+  <data key="d0">classroom_student</data>
+  <data key="d4">INT</data>
+  <data key="d7">INT</data>
+</node>
+<node id="5">
+  <data key="d0">attendance</data>
+  <data key="d8">Date</data>
+  <data key="d9">INT</data>
+  <data key="d10">INT</data>
+</node>
+<node id="6">
+  <data key="d11">INT</data>
+  <data key="d2">VARCHAR</data>
+  <data key="d0">exam_type</data>
+</node>
+<node id="7">
+  <data key="d12">INT</data>
+  <data key="d11">INT</data>
+  <data key="d2">VARCHAR</data>
+  <data key="d0">exam</data>
+</node>
+<node id="8">
+  <data key="d0">exam_result</data>
+  <data key="d12">INT</data>
+  <data key="d9">INT</data>
+  <data key="d3">INT</data>
+</node>
+<node id="9">
+  <data key="d0">student</data>
+  <data key="d9">INT</data>
+  <data key="d13">VARCHAR</data>
+  <data key="d2">VARCHAR</data>
+  <data key="d14">Date</data>
+  <data key="d15">INT</data>
+</node>
+<node id="10">
+  <data key="d0">parent</data>
+  <data key="d15">INT</data>
+  <data key="d13">VARCHAR</data>
+  <data key="d16">VARCHAR</data>
+  <data key="d17">VARCHAR</data>
+</node>
+<node id="11">
+  <data key="d6">INT</data>
+  <data key="d2">VARCHAR</data>
+  <data key="d13">VARCHAR</data>
+  <data key="d14">Date</data>
+  <data key="d0">teacher</data>
+</node>
+<edge source="1" target="2">
+  <data key="d18">has</data>
+</edge>
+<edge source="1" target="3">
+  <data key="d18">has</data>
+</edge>
+<edge source="2" target="8">
+  <data key="d18">has</data>
+</edge>
+<edge source="3" target="4">
+  <data key="d18">has</data>
+</edge>
+<edge source="3" target="11">
+  <data key="d18">has</data>
+</edge>
+<edge source="4" target="9">
+  <data key="d18">has</data>
+</edge>
+<edge source="5" target="9">
+  <data key="d18">has</data>
+</edge>
+<edge source="6" target="7">
+  <data key="d18">has</data>
+</edge>
+<edge source="7" target="8">
+  <data key="d18">has</data>
+</edge>
+<edge source="8" target="9">
+  <data key="d18">has</data>
+</edge>
+<edge source="9" target="10">
+  <data key="d18">has</data>
+</edge>
+</graph></graphml>
