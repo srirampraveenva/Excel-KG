@@ -163,29 +163,38 @@ class suggest:
                 continue
         return suggested_property
     
-    def suggest_connection(self, g, excel_node1, excel_node2):
+    def suggest_connection(self, g, excel_node1, excel_node2, excel_nodes):
         pt = pathtraversal()
         #res = [(a[1]['labelV'], b[1]['labelV']) for idx, a in enumerate(excel_nodes) for b in excel_nodes[idx + 1:]]
         
         try:
 
             G = nx.DiGraph()
+            excel_labels = [node[1]["labelV"] for node in excel_nodes]
 
             path_obj = pt.shortestpath(g, excel_node1, excel_node2)
             nx.add_path(G,path_obj[0]) #TODO Adds nodes of graph not excel nodes(is this bad?)
             attrs = dict()
             for vertex in path_obj[0]: #Added [0] because it's shortest path and we only have one path
                 temp = dict()
-                # if (vertex == path_obj[0][0] ):
-                #     for i in property_1.keys():
-                #        temp[i] = property_1[i]
-                
-                # elif (vertex == path_obj[0][-1]):
-                #     for i in property_2.keys():
-                #         temp[i] = property_2[i]
-                #if(bool(temp)):#Checks if temp is empty
-                for property in g.V(vertex.id).properties().valueMap(True).toList():
-                    temp[property[T.key]] = property[T.value]
+                flag = 0
+                props = g.V(vertex.id).properties().valueMap(True).toList()
+                property_name=""
+                for property in props:
+                    if(property[T.key]=="labelV" and (property[T.value] in excel_labels)):
+                        property_name=property[T.value]
+                        flag=1
+                if(flag==1):
+                    for i in excel_nodes:
+                        if (i[1]["labelV"] ==property_name):
+                            temp= i[1]
+
+                for property in props:
+                    # if(property[T.key]=="labelV"):
+                    #     temp[property[T.key]] = property[T.value]
+                        
+                    if(property[T.key] not in temp.keys()):
+                        temp["$kg_"+property[T.key]] = property[T.value]
                 attrs[vertex]=temp
             
             nx.set_node_attributes(G, attrs)
@@ -208,17 +217,19 @@ class suggest:
         suggestion["Properties"] = self.suggest_property(g, excel_path)
 
         e = excel_node()
-        nodes = e.convert_nodes(excel_path)
+        excel_nodes = e.convert_nodes(excel_path)
+        excel_labels = [node[1]["labelV"] for node in excel_nodes]
+        print(excel_labels)
         G = nx.DiGraph()
         H = nx.DiGraph()
         q = Query()
 
-        for (node1, node2) in permutations(nodes, 2):
+        for (node1, node2) in permutations(excel_nodes, 2):
             node1_label = node1[1]["labelV"]
             node2_label = node2[1]["labelV"]
            
             if(type(q.findNode(g, node1_label)) is not str or type(q.findNode(g, node2_label)) is  not str ):
-                H =  self.suggest_connection(g, node1_label, node2_label)
+                H =  self.suggest_connection(g, node1_label, node2_label, excel_nodes)
 
                 if (type(H) is not NoneType):
 
@@ -227,14 +238,14 @@ class suggest:
         
         labels = [node[1] for node in G.nodes.data("labelV")]
         remove_nodes = list()
-        for node in nodes:
+        for node in excel_nodes:
             if (node[1]["labelV"] in labels):
                 remove_nodes.append(node)
         for i in remove_nodes:
-            nodes.remove(i)                
+            excel_nodes.remove(i)                
 
         T = nx.DiGraph()
-        T.add_nodes_from(nodes)
+        T.add_nodes_from(excel_nodes)
         G = nx.compose(T, G)  
         suggestion["Connection"] = G
         nx.write_graphml(G, write_path)
@@ -320,9 +331,6 @@ connection.close()
 
 # Excel_path1 ="data/test(1).xlsx"
 # Excel_path2 = "data/test_shortest_path.xlsx"
-
-
-G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "/home/rohan/Documents/test_workbook.graphml")
 
 # G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "data/test_workbook.graphml")
 
