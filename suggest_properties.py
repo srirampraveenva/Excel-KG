@@ -1,9 +1,6 @@
 #TODO Should handle errors
-<<<<<<< HEAD
 from itertools import permutations, combinations
-=======
-from itertools import combinations
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
+
 from aenum import NoneType
 from gremlin_python import statics
 from gremlin_python.process.anonymous_traversal import traversal
@@ -131,12 +128,10 @@ class pathtraversal:
             return "One or both nodes don't exist in KG"
         #return g.V(q.findNode(g, node1_label).id).repeat(__.out().simplePath()).until(__.hasId(q.findNode(g, node1_label).id)).path().limit(1).toList()
         path = self.npaths(g, node1_label, node2_label, 1)
-<<<<<<< HEAD
-        #return "Connection exceeds 3 nodes" if (len(path[0])>5) else path
-        return path
-=======
+
         return "Connection exceeds 3 nodes" if (len(path[0])>5) else path
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
+        
+
         
 
 class suggest:
@@ -173,11 +168,9 @@ class suggest:
         #res = [(a[1]['labelV'], b[1]['labelV']) for idx, a in enumerate(excel_nodes) for b in excel_nodes[idx + 1:]]
         
         try:
-<<<<<<< HEAD
+
             G = nx.DiGraph()
-=======
-            G = nx.Graph()
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
+
             path_obj = pt.shortestpath(g, excel_node1, excel_node2)
             nx.add_path(G,path_obj[0]) #TODO Adds nodes of graph not excel nodes(is this bad?)
             attrs = dict()
@@ -196,11 +189,6 @@ class suggest:
                 attrs[vertex]=temp
             
             nx.set_node_attributes(G, attrs)
-<<<<<<< HEAD
-=======
-            print("Done")
-            #nx.write_graphml(G, "/home/rohan/Documents/test_connection.graphml")
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
             return G
         except:
             return
@@ -224,7 +212,7 @@ class suggest:
         G = nx.DiGraph()
         H = nx.DiGraph()
         q = Query()
-<<<<<<< HEAD
+
         for (node1, node2) in permutations(nodes, 2):
             node1_label = node1[1]["labelV"]
             node2_label = node2[1]["labelV"]
@@ -233,17 +221,7 @@ class suggest:
                 H =  self.suggest_connection(g, node1_label, node2_label)
 
                 if (type(H) is not NoneType):
-=======
-        for (node1, node2) in combinations(nodes, 2):
-            node1_label = node1[1]["labelV"]
-            node2_label = node2[1]["labelV"]
-            if(type(q.findNode(g, node1_label)) is not str or type(q.findNode(g, node2_label)) is  not str ):
 
-                H =  self.suggest_connection(g, node1_label, node2_label)
-                
-                if (type(H) is not NoneType):
-
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
                     G = nx.compose(G,H)
                     #list_of_graphs.append()
         
@@ -264,11 +242,9 @@ class suggest:
     
     def suggest_workbooks(self,g, list_of_paths, write_path):
         #Takes in a list of excel workbook paths, combines into one workbook and runs suggest_excel
-<<<<<<< HEAD
+
         writer = ExcelWriter("data/output.xlsx")
-=======
-        writer = ExcelWriter("output.xlsx")
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
+
 
         for filename in list_of_paths:
             print(filename)
@@ -280,20 +256,15 @@ class suggest:
                 df_excel.to_excel(writer, sheet_name, index=False)
 
         writer.save()
-<<<<<<< HEAD
+
         return self.suggest_excel(g, "data/output.xlsx", write_path)
-=======
-        return self.suggest_excel(g, "output.xlsx", write_path)
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
+
 
             
 
 """
 class Visualize:
-<<<<<<< HEAD
-=======
 
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
     def draw_graph(self, G):
         
         pos = nx.spring_layout(G)
@@ -309,13 +280,10 @@ class Visualize:
         nx.draw(G, pos, with_labels=True, labels = mapping)
         nx.draw_networkx_edge_labels(G,pos, edge_labels=mapping_edges)    
 """   
-<<<<<<< HEAD
+
 connection = DriverRemoteConnection('ws://localhost:8182/gremlin', 'g')
 g = traversal().withRemote(connection)
-=======
 
-g = traversal().withRemote(DriverRemoteConnection('ws://localhost:8182/gremlin','g'))
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
 '''
 p = pathtraversal()
 #print(g.V(2).properties().valueMap(True).toList())
@@ -327,14 +295,12 @@ Excel_path ="test.xlsx"
 
 Excel_path ="data/test_new.xlsx"
 
-<<<<<<< HEAD
+
 s = suggest()
 #print(s.suggest_property(g, "data/test.xlsx"))
 
 suggestion = s.suggest_excel(g, Excel_path, "data/test_connection.graphml")
-=======
-suggestion = s.suggest_excel(g, Excel_path, "test_connection.graphml")
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
+
 print("\t\t\tProperty\t\tType")
 for i in suggestion['Properties'].keys():
     print("Node label : ", i)
@@ -343,7 +309,7 @@ for i in suggestion['Properties'].keys():
         print("\t\t\t"+str(j[0]) +'\t\t'+str(j[1])) 
     print()
 
-<<<<<<< HEAD
+
 G = nx.DiGraph()
 excel = excel_node()
 G.add_nodes_from(excel.convert_nodes(Excel_path))
@@ -354,17 +320,7 @@ connection.close()
 
 # Excel_path1 ="data/test(1).xlsx"
 # Excel_path2 = "data/test_shortest_path.xlsx"
-=======
-G = nx.Graph()
-excel = excel_node()
-G.add_nodes_from(excel.convert_nodes(Excel_path))
 
-nx.write_graphml(G, "graph_excel.graphml")
-
-Excel_path1 ="test(1).xlsx"
-Excel_path2 = "test_shortest_path.xlsx"
-
->>>>>>> 1bc45b4bf2a3bd04cf57857c9357ae09c9fd9f67
 
 G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "/home/rohan/Documents/test_workbook.graphml")
 
