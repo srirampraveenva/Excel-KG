@@ -12,9 +12,9 @@ import numpy
 import matplotlib as plt
 from pandas import ExcelWriter
 import os
-'''
-os.chdir("/home/rohan/Documents/KG-main-new-20210620T044337Z-001/KG-main-new/KG-main")
-'''
+
+os.chdir("/home/rohan/Documents/GitHub/Excel-KG")
+
 import pandas as pd
 import networkx as nx
 from kgn_pathfinding import Query
@@ -267,8 +267,9 @@ class suggest:
                 df_excel.to_excel(writer, sheet_name, index=False)
 
         writer.save()
-
-        return self.suggest_excel(g, "data/output.xlsx", write_path)
+        temp = self.suggest_excel(g, "data/output.xlsx", write_path)
+        os.remove("data/output.xlsx")
+        return temp
 
 
             
@@ -327,12 +328,12 @@ G.add_nodes_from(excel.convert_nodes(Excel_path))
 
 nx.write_graphml(G, "data/graph_excel.graphml")
 
+
+
+Excel_path1 ="data/test_new.xlsx"
+Excel_path2 = "data/Inventory Management.xlsx"
+
+G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "data/test_workbook.graphml")
+
 connection.close()
-
-# Excel_path1 ="data/test(1).xlsx"
-# Excel_path2 = "data/test_shortest_path.xlsx"
-
-# G = s.suggest_workbooks(g, (Excel_path1, Excel_path2), "data/test_workbook.graphml")
-
-
     
